@@ -4,6 +4,7 @@
 #include "framework.h"
 #include "Client.h"
 #include "Game.h"
+
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
@@ -54,18 +55,19 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     // 기본 메시지 루프입니다:
     while (true)
     {
-        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE)) {
+        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
+        {
             if (msg.message == WM_QUIT)
                 break;
 
-            if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
-            {
-                TranslateMessage(&msg);
-                DispatchMessage(&msg);
-            }
+			if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+			{
+				TranslateMessage(&msg);
+				DispatchMessage(&msg);
+			}
         }
 
-        // TODO :
+		// TODO
         game->Update();
     }
 
@@ -93,7 +95,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_CLIENT));
     wcex.hCursor        = LoadCursor(nullptr, IDC_ARROW);
     wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
-    wcex.lpszMenuName = nullptr;
+    wcex.lpszMenuName   = nullptr;
     wcex.lpszClassName  = szWindowClass;
     wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 

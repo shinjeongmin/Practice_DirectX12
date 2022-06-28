@@ -14,10 +14,10 @@ void Engine::Init(const WindowInfo& info)
 	_viewport = { 0,0,static_cast<FLOAT>(info.width), static_cast<FLOAT>(info.height), 0.0f, 1.0f };
 	_scissorRect = CD3DX12_RECT(0, 0, info.width, info.height);
 
-	_device = shared_ptr<class Device>();
-	_cmdQueue = shared_ptr<class CommandQueue>();
-	_swapChain = shared_ptr<class SwapChain>();
-	_descHeap = shared_ptr<class DescriptorHeap>();
+	_device = make_shared<class Device>();
+	_cmdQueue = make_shared<class CommandQueue>();
+	_swapChain = make_shared<class SwapChain>();
+	_descHeap = make_shared<class DescriptorHeap>();
 
 	_device->Init();
 	_cmdQueue->Init(_device->GetDevice(), _swapChain, _descHeap);
