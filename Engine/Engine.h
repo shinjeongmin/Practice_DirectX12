@@ -1,10 +1,19 @@
 #pragma once
 
+#include "Device.h"
+#include "CommandQueue.h"
+#include "SwapChain.h"
+
 class Engine
 {
 public:
 	void Init(const WindowInfo& info);
 	void Render();
+
+public:
+	shared_ptr<Device> GetDevice() { return _device; }
+	shared_ptr<CommandQueue> GetCmdQueue() { return _cmdQueue; }
+	shared_ptr<SwapChain> GetSwapChain() { return _swapChain; }
 
 public:
 	void RenderBegin();
@@ -20,6 +29,5 @@ private:
 	shared_ptr<class Device> _device;
 	shared_ptr<class CommandQueue> _cmdQueue;
 	shared_ptr<class SwapChain> _swapChain;
-	shared_ptr<class DescriptorHeap> _descHeap;
 };
 

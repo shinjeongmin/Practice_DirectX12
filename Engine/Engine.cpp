@@ -1,9 +1,5 @@
 #include "pch.h"
 #include "Engine.h"
-#include "Device.h"
-#include "CommandQueue.h"
-#include "SwapChain.h"
-#include "DescriptorHeap.h"
 
 void Engine::Init(const WindowInfo& info)
 {
@@ -17,12 +13,10 @@ void Engine::Init(const WindowInfo& info)
 	_device = make_shared<class Device>();
 	_cmdQueue = make_shared<class CommandQueue>();
 	_swapChain = make_shared<class SwapChain>();
-	_descHeap = make_shared<class DescriptorHeap>();
 
 	_device->Init();
-	_cmdQueue->Init(_device->GetDevice(), _swapChain, _descHeap);
-	_swapChain->Init(info, _device->GetDXGI(), _cmdQueue->GetCmdQueue());
-	_descHeap->Init(_device->GetDevice(), _swapChain);
+	_cmdQueue->Init(_device->GetDevice(), _swapChain);
+	_swapChain->Init(info, _device->GetDevice(), _device->GetDXGI(), _cmdQueue->GetCmdQueue());
 }
 
 void Engine::Render()

@@ -56,6 +56,7 @@ struct WindowInfo
 	bool windowed; // 창모드 or 전체화면
 };
 
-extern unique_ptr<class Engine> GEngine;
+#define DEVICE			GEngine->GetDevice()->GetDevice()
+#define CMD_LIST		GEngine->GetCmdQueue()->GetCmdList()
 
-void HelloEngine();
+extern unique_ptr<class Engine> GEngine;
