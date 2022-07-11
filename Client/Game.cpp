@@ -30,7 +30,7 @@ void Game::Init(const WindowInfo& info)
 		indexVec.push_back(1);
 		indexVec.push_back(2);
 	}
-	{ 
+	{
 		indexVec.push_back(0);
 		indexVec.push_back(2);
 		indexVec.push_back(3);
@@ -53,7 +53,17 @@ void Game::Update()
 
 	{
 		Transform t;
-		t.offset = Vec4(0.f, 0.f, 0.f, 0.f);
+		t.offset = Vec4(0.25f, 0.25f, 0.2f, 0.f);
+		mesh->SetTransform(t);
+
+		mesh->SetTexture(texture);
+
+		mesh->Render();
+	}
+
+	{
+		Transform t;
+		t.offset = Vec4(0.f, 0.f, 0.3f, 0.f);
 		mesh->SetTransform(t);
 
 		mesh->SetTexture(texture);
