@@ -35,6 +35,7 @@ public:
 	shared_ptr<Input> GetInput() { return _input; }
 	shared_ptr<Timer> GetTimer() { return _timer; }
 
+	shared_ptr<ConstantBuffer> GetConstantBuffer(CONSTANT_BUFFER_TYPE type) { return _constantBuffers[static_cast<uint8>(type)]; }
 public:
 	void RenderBegin();
 	void RenderEnd();
@@ -43,6 +44,7 @@ public:
 
 private:
 	void ShowFps();
+	void CreateConstantBuffer(CBV_REGISTER reg, uint32 bufferSize, uint32 count);
 
 private:
 	// 그려질 화면 크기 관련
@@ -60,5 +62,7 @@ private:
 
 	shared_ptr<Input> _input = make_shared<Input>();
 	shared_ptr<Timer> _timer = make_shared<Timer>();
+
+	vector<shared_ptr<ConstantBuffer>> _constantBuffers;
 };
 
