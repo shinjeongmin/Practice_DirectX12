@@ -30,6 +30,8 @@ enum
 
 class Input
 {
+	DECLARE_SINGLE(Input);
+
 public:
 	void Init(HWND hwnd);
 	void Update();
@@ -48,3 +50,4 @@ private:
 	HWND _hwnd;
 	vector<KEY_STATE> _states;
 };
+

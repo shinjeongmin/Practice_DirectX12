@@ -58,7 +58,7 @@ using Vec3 = XMFLOAT3;
 using Vec4 = XMFLOAT4;
 using Matrix = XMMATRIX;
 
-enum class CBV_REGISTER
+enum class CBV_REGISTER : uint8
 {
 	b0,
 	b1,
@@ -90,10 +90,10 @@ enum
 
 struct WindowInfo
 {
-	HWND hwnd; // 출력 윈도우
-	int32 width; // 너비
-	int32 height; // 높이 
-	bool windowed; // 창모드 or 전체화면
+	HWND	hwnd; // 출력 윈도우
+	int32	width; // 너비
+	int32	height; // 높이
+	bool	windowed; // 창모드 or 전체화면
 };
 
 struct Vertex
@@ -103,13 +103,26 @@ struct Vertex
 	Vec2 uv;
 };
 
-#define DEVICE			GEngine->GetDevice()->GetDevice()
-#define CMD_LIST		GEngine->GetCmdQueue()->GetCmdList()
-#define RESOURCE_CMD_LIST	GEngine->GetCmdQueue()->GetResourceCmdList()
-#define ROOT_SIGNATURE	GEngine->GetRootSignature()->GetSignature()
+#define DECLARE_SINGLE(type)		\
+private:							\
+	type() {}						\
+	~type() {}						\
+public:								\
+	static type* GetInstance()		\
+	{								\
+		static type instance;		\
+		return &instance;			\
+	}								\
 
-#define INPUT				GEngine->GetInput()
-#define DELTA_TIME			GEngine->GetTimer()->GetDeltaTime()
+#define GET_SINGLE(type)	type::GetInstance()
+
+#define DEVICE				GEngine->GetDevice()->GetDevice()
+#define CMD_LIST			GEngine->GetCmdQueue()->GetCmdList()
+#define RESOURCE_CMD_LIST	GEngine->GetCmdQueue()->GetResourceCmdList()
+#define ROOT_SIGNATURE		GEngine->GetRootSignature()->GetSignature()
+
+#define INPUT				GET_SINGLE(Input)
+#define DELTA_TIME			GET_SINGLE(Timer)->GetDeltaTime()
 
 #define CONST_BUFFER(type)	GEngine->GetConstantBuffer(type)
 
