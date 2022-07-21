@@ -1,23 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{53dd1d9c-afa2-43de-8545-b68fe1eb95c5}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Resource">
-      <UniqueIdentifier>{e55687b3-f472-4fe8-b4d8-edb7fb8d7395}</UniqueIdentifier>
+      <UniqueIdentifier>{c5612518-9c4d-408d-926a-9312743d39fa}</UniqueIdentifier>
     </Filter>
     <Filter Include="Utils">
-      <UniqueIdentifier>{64bfad55-b787-4b9f-a124-6e16bb9cf57a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine">
-      <UniqueIdentifier>{7e5266ce-e24c-4ab1-ac7d-c0773e452630}</UniqueIdentifier>
+      <UniqueIdentifier>{300f6233-f1b4-4f18-9360-c9bfe0308e34}</UniqueIdentifier>
     </Filter>
     <Filter Include="Shader">
-      <UniqueIdentifier>{7a634e47-b9d8-4705-8aec-922b8e90e4b6}</UniqueIdentifier>
+      <UniqueIdentifier>{710a24eb-3b22-4cba-b53b-42897f27a6d4}</UniqueIdentifier>
     </Filter>
     <Filter Include="GameObject">
-      <UniqueIdentifier>{a42625d0-6c90-454e-a657-3072a95185a6}</UniqueIdentifier>
+      <UniqueIdentifier>{dd23f47d-3ac2-4f96-9bfe-4a6fac248639}</UniqueIdentifier>
     </Filter>
     <Filter Include="Manager">
-      <UniqueIdentifier>{5bf7adb7-f322-44f8-890d-f0ddf186f24c}</UniqueIdentifier>
+      <UniqueIdentifier>{25b3214d-e145-4b49-8e9d-908a06998ffa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Test">
+      <UniqueIdentifier>{1cfe4b64-4ca1-4958-b16f-73f8ae1985c3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -90,6 +93,15 @@
     <ClCompile Include="Timer.cpp">
       <Filter>Manager</Filter>
     </ClCompile>
+    <ClCompile Include="SimpleMath.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="TestCameraScript.cpp">
+      <Filter>GameObject\Test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -107,10 +119,10 @@
     <ClInclude Include="CommandQueue.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="SwapChain.h">
+    <ClInclude Include="Device.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Device.h">
+    <ClInclude Include="SwapChain.h">
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="RootSignature.h">
@@ -164,10 +176,22 @@
     <ClInclude Include="Timer.h">
       <Filter>Manager</Filter>
     </ClInclude>
+    <ClInclude Include="SimpleMath.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="TestCameraScript.h">
+      <Filter>GameObject\Test</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\Shader\default.hlsli">
       <Filter>Shader</Filter>
+    </None>
+    <None Include="SimpleMath.inl">
+      <Filter>Utils</Filter>
     </None>
   </ItemGroup>
 </Project>

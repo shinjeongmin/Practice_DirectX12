@@ -1,5 +1,6 @@
 #pragma once
 
+
 // 교환 사슬
 // [외주 과정]
 // - 현재 게임 세상에 있는 상황을 묘사
@@ -40,10 +41,11 @@ private:
 
 private:
 	ComPtr<IDXGISwapChain>	_swapChain;
-
-	ComPtr<ID3D12Resource>	_rtvBuffer[SWAP_CHAIN_BUFFER_COUNT];
+	
+	ComPtr<ID3D12Resource>			_rtvBuffer[SWAP_CHAIN_BUFFER_COUNT];
 	ComPtr<ID3D12DescriptorHeap>	_rtvHeap;
 	D3D12_CPU_DESCRIPTOR_HANDLE		_rtvHandle[SWAP_CHAIN_BUFFER_COUNT];
 
 	uint32					_backBufferIndex = 0;
 };
+
